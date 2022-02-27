@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CodiMD Search</title>
+</head>
+<style type="text/css">
+	<!--
+	body {
+  width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+  margin-top:2em;
+	font-size: 110%;
+	line-height: 150%;
+	background-color:#F5F5F5;
+	}
+  h1 {
+    font-size: 140%;
+  }
+	-->
+	</style>
+<body>
+  <div style="text-align:right">
+
+  <a href="{{base_url}}new" target=”_new”>+New Note</a>
+
+</div>
+  <div>
+  <h1># Menu</h1>
+  <ul>
+    <li><a href="/">list</a></li>
+  </ul>
+</div>
+<div>
+  <form action="/result" method="POST">
+  <input type="text" name="keyword" value={{keyword}}>
+  <input type="submit" value="search">
+  </form>
+</div>
+<hr>
+<div>
+<ol>
+  {% for a in result %}
+  <li><a href="{{base_url}}s/{{a[1]}}" target=”_new”>{{ a[0] }}</a>&nbsp;/&nbsp;<a href="{{base_url}}{{a[1]}}/edit" target=”_new”>[edit]</a></li>
+  {% endfor %}
+</ol>
+</div>
+
+<div style="text-align:right">
+
+  <a href="/setup" target=”_new”>Initial Setup</a>
+
+</div>
+</body>
+</html>
